@@ -1,6 +1,9 @@
 package ortiz.sanchez.jonathan.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +17,7 @@ public class Curso {
     private String curso;
     private String descripcion;
 
+    @JsonIgnoreProperties({"cursos"})
     @ManyToOne
     @JoinColumn(
             nullable = false,

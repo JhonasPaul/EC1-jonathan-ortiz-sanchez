@@ -1,5 +1,7 @@
 package ortiz.sanchez.jonathan.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +12,7 @@ public class Universidad {
     private Long id;
     private String universidad;
 
+    @JsonIgnoreProperties({"universidad"})
     @OneToOne(mappedBy = "universidad")
     private MallaCurricular mallaCurricular;
 

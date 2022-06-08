@@ -1,5 +1,7 @@
 package ortiz.sanchez.jonathan.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +14,14 @@ public class MallaCurricular {
     private Long id;
     private String años;
 
+    @JsonIgnoreProperties({"mallaCurricular"})
     @OneToOne
     @JoinColumn(
             nullable = false,
             unique = true)
     private Universidad universidad;
 
+    @JsonIgnoreProperties({"mallaCurricular"})
     @OneToMany(mappedBy = "mallaCurricular", cascade ={CascadeType.PERSIST, CascadeType.MERGE})
     private List<Curso> cursos = new ArrayList<>();
 

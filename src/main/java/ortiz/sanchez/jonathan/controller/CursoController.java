@@ -14,25 +14,25 @@ import java.util.List;
 public class CursoController {
     @Autowired
     private CursoServiceImpl service;
-    @GetMapping("/Curso")
+    @GetMapping("/curso")
     public List<Curso> index() {
         return service.listarCurso();
     }
 
 
-    @GetMapping("/Curso/{id}")
+    @GetMapping("/curso/{id}")
     public Curso show(@PathVariable Long id) {
         return this.service.obtenerCursoPorId(id);
     }
 
-    @PostMapping("/Curso")
+    @PostMapping("/curso")
     @ResponseStatus(HttpStatus.CREATED)
     public Curso create(@RequestBody Curso Curso) {
         this.service.guardarCurso(Curso);
         return Curso;
     }
 
-    @PutMapping("/Curso/{id}")
+    @PutMapping("/curso/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Curso update(@RequestBody Curso Curso, @PathVariable Long id) {
         Curso curso = this.service.obtenerCursoPorId(id);
@@ -43,7 +43,7 @@ public class CursoController {
         return curso;
     }
 
-    @DeleteMapping("/Curso/{id}")
+    @DeleteMapping("/curso/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         Curso curso = this.service.obtenerCursoPorId(id);

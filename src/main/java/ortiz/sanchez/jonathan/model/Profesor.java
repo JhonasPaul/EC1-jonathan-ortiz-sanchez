@@ -1,5 +1,6 @@
 package ortiz.sanchez.jonathan.model;
 
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ public class Profesor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String profesor;
+
 
     @ManyToMany(mappedBy = "profesor", cascade ={CascadeType.PERSIST, CascadeType.MERGE})
     private List<Curso> curso = new ArrayList<>();

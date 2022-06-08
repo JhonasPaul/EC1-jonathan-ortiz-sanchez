@@ -14,6 +14,7 @@ public class MallaCurricularController {
     @Autowired
     private MallaCurricularServiceImpl service;
 
+    @GetMapping("/mallaCurricular")
     public List<MallaCurricular> index() {
         return service.listarMallaCurricular();
     }
